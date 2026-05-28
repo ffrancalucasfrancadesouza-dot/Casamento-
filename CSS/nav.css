@@ -1,0 +1,375 @@
+nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: center; gap: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(253,248,243,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rose-light);
+}
+nav a {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400; font-size: .78rem; letter-spacing: .18em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--brown); transition: color .3s;
+}
+nav a:hover { 
+    color: var(--rose-deep);
+}
+#hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+ 
+    /* petal background */
+#hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+    radial-gradient(ellipse 70% 60% at 20% 30%, rgba(232,164,164,.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(232,164,164,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 80% at 50% 50%, rgba(245,213,213,.12) 0%, transparent 80%);
+}
+ 
+.hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300; font-size: .75rem; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--rose-deep);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp .8s .2s forwards;
+}
+ 
+.hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 300; line-height: 1;
+    color: var(--text);
+     opacity: 0; animation: fadeUp .9s .4s forwards;
+}
+.hero-names em {
+    font-style: italic; color: var(--rose-deep); 
+}
+.hero-amp {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    color: var(--gold); font-weight: 300;
+    display: block; line-height: 1.3;
+}
+ 
+.hero-date {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300; font-size: .9rem; letter-spacing: .25em;
+    color: var(--brown); margin-top: 1.8rem;
+    opacity: 0; animation: fadeUp .9s .6s forwards;
+}
+ 
+.hero-divider {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    margin: 1.8rem auto;
+    opacity: 0; animation: fadeUp .9s .7s forwards;
+}
+ /* SVG florals */
+    .floral-left, .floral-right {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: clamp(140px, 18vw, 260px);
+      opacity: .45;
+      animation: floatPetal 6s ease-in-out infinite;
+    }
+    .floral-left  { left: -20px; }
+    .floral-right { right: -20px; transform: translateY(-50%) scaleX(-1); }
+ 
+    @keyframes floatPetal {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50%       { transform: translateY(-52%) translateX(6px); }
+    }
+    .floral-right { animation-name: floatPetalR; }
+    @keyframes floatPetalR {
+      0%, 100% { transform: translateY(-50%) scaleX(-1) translateX(0); }
+      50%       { transform: translateY(-52%) scaleX(-1) translateX(6px); }
+    }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    /* ── COUNTDOWN ── */
+    #countdown {
+      background: var(--text);
+      color: var(--cream);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .countdown-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300; font-size: .75rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--rose-light);
+      margin-bottom: 2.5rem;
+    }
+    .countdown-grid {
+      display: flex; justify-content: center; gap: clamp(1rem, 4vw, 3rem);
+      flex-wrap: wrap;
+    }
+    .countdown-item { text-align: center; }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 300; line-height: 1;
+      color: var(--rose-light);
+    }
+    .countdown-unit {
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--rose);
+      margin-top: .3rem;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--gold); align-self: center; line-height: 1;
+      padding-bottom: .5rem;
+    }
+ 
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; }
+    .section-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300; font-size: .72rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--rose-deep);
+      text-align: center; margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300; text-align: center;
+      color: var(--text); margin-bottom: 1rem;
+    }
+    .section-rule {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+      margin: 0 auto 3rem;
+    }
+ 
+    /* ── NOSSA HISTÓRIA ── */
+    #historia { background: var(--cream); }
+    .historia-inner {
+      max-width: 720px; margin: 0 auto;
+      position: relative;
+    }
+    .historia-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300; line-height: 1.9;
+      color: var(--brown); text-align: center;
+      font-style: italic;
+    }
+    .historia-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--rose-light); line-height: 1;
+      position: absolute; top: -1.5rem; left: -1rem;
+      font-weight: 300; user-select: none;
+    }
+ 
+    .timeline {
+      max-width: 560px; margin: 3rem auto 0;
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+    .tl-item {
+      display: grid; grid-template-columns: 60px 1fr;
+      gap: 1rem; align-items: start;
+    }
+    .tl-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--rose-deep); text-align: right;
+      padding-top: .1rem;
+    }
+    .tl-content {
+      border-left: 1px solid var(--rose-light);
+      padding-left: 1.2rem;
+    }
+    .tl-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500; font-size: .9rem;
+      color: var(--text); margin-bottom: .25rem;
+    }
+    .tl-desc {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300; font-size: .85rem;
+      color: var(--brown); line-height: 1.6;
+    }
+ 
+    /* ── LOCAL ── */
+    #local { background: var(--cream-dark); }
+    .local-card {
+      max-width: 560px; margin: 0 auto;
+      background: var(--cream);
+      border: 1px solid var(--rose-light);
+      border-radius: 2px;
+      padding: 3rem;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(196,122,122,.1);
+    }
+    .local-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .local-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 400; color: var(--text);
+      margin-bottom: .5rem;
+    }
+    .local-detail {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300; font-size: .88rem;
+      color: var(--brown); line-height: 1.8;
+    }
+    .local-badge {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: .45rem 1.2rem;
+      border: 1px solid var(--rose);
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--rose-deep);
+      border-radius: 100px;
+    }
+ 
+    /* ── PRESENTES ── */
+    #presentes { background: var(--cream); }
+    .presentes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; max-width: 900px; margin: 0 auto;
+    }
+    .presente-card {
+      background: var(--cream-dark);
+      border: 1px solid var(--rose-light);
+      border-radius: 2px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .presente-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(196,122,122,.15);
+    }
+    .presente-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .presente-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--text);
+      margin-bottom: .4rem;
+    }
+    .presente-desc {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300; font-size: .82rem;
+      color: var(--brown); line-height: 1.6;
+    }
+    .presente-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--gold);
+      margin-top: .8rem; font-weight: 400;
+    }
+    .presentes-pix {
+      max-width: 480px; margin: 3rem auto 0;
+      background: linear-gradient(135deg, var(--rose-light), var(--cream-dark));
+      border: 1px solid var(--rose);
+      border-radius: 2px; padding: 2rem;
+      text-align: center;
+    }
+    .pix-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: .5rem;
+    }
+    .pix-key {
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem; font-weight: 300;
+      color: var(--brown); margin: .5rem 0;
+    }
+    .pix-key strong { color: var(--text); font-weight: 500; }
+    .pix-note {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem; color: var(--rose-deep);
+      font-style: italic; margin-top: .8rem;
+    }
+ 
+    /* ── RSVP ── */
+    #rsvp { background: var(--cream-dark); }
+    .rsvp-form {
+      max-width: 520px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: .4rem; }
+    .field label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--brown);
+    }
+    .field input, .field select, .field textarea {
+      background: var(--cream);
+      border: 1px solid var(--rose-light);
+      border-radius: 2px;
+      padding: .75rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem; font-weight: 300;
+      color: var(--text);
+      outline: none;
+      transition: border-color .3s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--rose-deep);
+    }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .field select { appearance: none; cursor: pointer; }
+    .btn-rsvp {
+      background: var(--text);
+      color: var(--cream);
+      border: none; border-radius: 2px;
+      padding: 1rem 2.5rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem; letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .3s, transform .2s;
+      align-self: center; margin-top: .5rem;
+    }
+    .btn-rsvp:hover { background: var(--brown); transform: translateY(-2px); }
+    .rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .rsvp-success .check { font-size: 3rem; margin-bottom: 1rem; }
+    .rsvp-success p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 300; color: var(--text);
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: var(--rose-light);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300;
+      margin-bottom: .5rem;
+    }
+    .footer-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--rose);
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .floral-left, .floral-right { width: 100px; opacity: .3; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      nav a { font-size: .7rem; }
+    }
