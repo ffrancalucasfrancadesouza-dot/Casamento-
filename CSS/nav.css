@@ -23,6 +23,9 @@ nav a:hover {
     padding: 6rem 2rem 4rem;
     position: relative;
     overflow: hidden;
+    background-image: url('../img/image.png');
+    background-size: cover;
+    background-position: center;
 }
  
     /* petal background */
