@@ -516,13 +516,16 @@ nav a:hover {
     .local-icon { font-size: 2rem; margin-bottom: 1rem; }
     .local-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem; font-weight: 400; color: var(--text);
+      font-size: 1.8rem; font-weight: 400; 
+      color: var(--cream-dark);
       margin-bottom: .5rem;
     }
     .local-detail {
       font-family: 'Jost', sans-serif;
-      font-weight: 300; font-size: .88rem;
-      color: var(--brown); line-height: 1.8;
+      font-weight: 300; 
+      font-size: .88rem;
+      color: var(--cream); 
+      line-height: 1.8;
     }
     .local-badge {
       display: inline-block;
