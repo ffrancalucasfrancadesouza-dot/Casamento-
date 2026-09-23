@@ -517,7 +517,6 @@ nav a:hover {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
-      border: 1px solid var(--rose-light);
       border-radius: 2px;
       padding: 3rem;
       text-align: center;
@@ -538,7 +537,7 @@ nav a:hover {
     .local-detail {
       font-family: 'Jost', sans-serif;
       font-weight: 300; 
-      font-size: .88rem;
+      font-size: 1.88rem;
       color: #292522; 
       line-height: 1.8;
       text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
