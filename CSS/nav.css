@@ -136,18 +136,27 @@ nav a:hover {
     }
  
     /* ── SECTION BASE ── */
-    section { padding: 6rem 2rem; }
+    section { 
+      padding: 6rem 2rem; 
+    }
     .section-eyebrow {
       font-family: 'Jost', sans-serif;
-      font-weight: 300; font-size: .72rem; letter-spacing: .3em;
-      text-transform: uppercase; color: var(--rose-deep);
-      text-align: center; margin-bottom: .8rem;
+      font-weight: 300; 
+      font-size: .72rem; 
+      letter-spacing: .3em;
+      text-transform: uppercase; 
+      color: #292522;
+      text-align: center; 
+      margin-bottom: .8rem;
+      text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 300; text-align: center;
-      color: var(--text); margin-bottom: 1rem;
+      font-weight: 300; 
+      text-align: center;
+      color: var(--text); 
+      margin-bottom: 1rem;
     }
     .section-rule {
       width: 60px; height: 1px;
@@ -513,19 +522,25 @@ nav a:hover {
       text-align: center;
       box-shadow: 0 8px 40px rgba(196,122,122,.1);
     }
-    .local-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .local-icon {
+      font-size: 2rem; 
+      margin-bottom: 1rem; 
+    }
     .local-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem; font-weight: 400; 
-      color:#68464F;
+      font-size: 1.8rem; 
+      font-weight: 400; 
+      color:#292522;
       margin-bottom: .5rem;
+      text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
     .local-detail {
       font-family: 'Jost', sans-serif;
       font-weight: 300; 
       font-size: .88rem;
-      color: #68464F; 
+      color: #292522; 
       line-height: 1.8;
+      text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
     .local-badge {
       display: inline-block;
@@ -536,8 +551,9 @@ nav a:hover {
       font-size: .72rem; 
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #68464F;
+      color: #292522;
       border-radius: 100px;
+      text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
  
     /* ── PRESENTES ── */
