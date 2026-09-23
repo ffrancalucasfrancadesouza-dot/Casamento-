@@ -495,10 +495,12 @@ nav a:hover {
 
 }
     /* ── LOCAL ── */
-    #local { background-image: url('img/local.png'); }
+    #local { 
+      background-image: url('img/paisagem.png'); 
+    }
     .local-card {
       max-width: 560px; margin: 0 auto;
-      background-image: url('img/local.png');
+      background-image: url('img/paisagem.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
