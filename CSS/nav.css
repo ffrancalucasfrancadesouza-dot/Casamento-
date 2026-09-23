@@ -155,8 +155,9 @@ nav a:hover {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 300; 
       text-align: center;
-      color: var(--text); 
+      color: #292522; 
       margin-bottom: 1rem;
+      text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
     .section-rule {
       width: 60px; height: 1px;
