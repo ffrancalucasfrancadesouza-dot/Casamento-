@@ -517,24 +517,26 @@ nav a:hover {
     .local-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.8rem; font-weight: 400; 
-      color: var(--cream-dark);
+      color:#68464F;
       margin-bottom: .5rem;
     }
     .local-detail {
       font-family: 'Jost', sans-serif;
       font-weight: 300; 
       font-size: .88rem;
-      color: var(--cream); 
+      color: #68464F; 
       line-height: 1.8;
     }
     .local-badge {
       display: inline-block;
       margin-top: 1.5rem;
       padding: .45rem 1.2rem;
-      border: 1px solid var(--rose);
+      border: 1px solid #68464F;
       font-family: 'Jost', sans-serif;
-      font-size: .72rem; letter-spacing: .15em;
-      text-transform: uppercase; color: var(--rose-deep);
+      font-size: .72rem; 
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #68464F;
       border-radius: 100px;
     }
  
