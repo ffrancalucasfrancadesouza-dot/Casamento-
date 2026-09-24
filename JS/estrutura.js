@@ -30,10 +30,14 @@ function submitRSVP() {
 
     if (!nome) { alert('Por favor, informe seu nome.'); return; }
     if (!conf) { alert('Por favor, selecione sua confirmação.'); return; }
-
+    const mensagem = `Eu, ${nome}, confirmo minha presença no casamento de Emily & Vinicius, que se realizará no dia 01.11.2026`;
+    const url = `https://wa.me/5567991116370?text=${encodeURIComponent(mensagem)}`;
+    
+    window.open(url, "_blank");
+    
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('rsvp-success').style.display = 'block';
-    console.log(`RSVP enviado: ${nome} - ${conf}`);
+    
 }
 
 // ── Intersection Observer: fade-in on scroll ──
