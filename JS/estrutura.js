@@ -33,6 +33,7 @@ function submitRSVP() {
 
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('rsvp-success').style.display = 'block';
+    console.log(`RSVP enviado: ${nome} - ${conf}`);
 }
 
 // ── Intersection Observer: fade-in on scroll ──
