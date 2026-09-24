@@ -145,7 +145,7 @@ nav a:hover {
       font-size: .72rem; 
       letter-spacing: .3em;
       text-transform: uppercase; 
-      color: #fdf8f3;
+      color: var(--rose-light);
       text-align: center; 
       margin-bottom: .8rem;
       text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
@@ -155,7 +155,7 @@ nav a:hover {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 300; 
       text-align: center;
-      color: #fdf8f3; 
+      color: var(--gold); 
       margin-bottom: 1rem;
       text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
