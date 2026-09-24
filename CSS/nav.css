@@ -565,7 +565,7 @@ nav a:hover {
       font-size: .72rem; 
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #fdf8f3;
+      color: var(--text);
       border-radius: 100px;
       text-shadow: 0 1px 3px rgba(255, 245, 235, 0.35);
     }
