@@ -513,14 +513,8 @@ nav a:hover {
     }
     .local-card {
       max-width: 560px; margin: 0 auto;
-      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('../img/paisagem.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      border-radius: 2px;
       padding: 3rem;
       text-align: center;
-      box-shadow: 0 8px 40px rgba(196,122,122,.1);
     }
     .local-icon {
       font-size: 2rem; 
