@@ -23,23 +23,175 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ── RSVP ──
+// --- RSVP ---
+
+// ===============================
+// RSVP - CONFIRMAÇÃO DE PRESENÇA
+// ===============================
+
+const campoConfirmacao = document.getElementById('f-conf');
+const campoAcompanhante = document.getElementById('campo-acompanhante');
+
+
+// Mostra ou esconde o campo de acompanhante
+campoConfirmacao.addEventListener('change', function () {
+
+    const inputAcompanhante = document.getElementById('f-acompanhante');
+
+    if (this.value === 'nao') {
+
+        // Esconde o acompanhante
+        campoAcompanhante.style.display = 'none';
+
+        // Limpa o campo
+        inputAcompanhante.value = '';
+
+    } else {
+
+        // Mostra o acompanhante
+        campoAcompanhante.style.display = 'block';
+
+    }
+
+});
+
+
+// ===============================
+// FUNÇÃO DE ENVIO
+// ===============================
+
 function submitRSVP() {
-    const nome = document.getElementById('f-nome').value.trim();
-    const conf = document.getElementById('f-conf').value;
 
-    if (!nome) { alert('Por favor, informe seu nome.'); return; }
-    if (!conf) { alert('Por favor, selecione sua confirmação.'); return; }
-    const mensagem = `Eu, ${nome}, confirmo minha presença no casamento de Emily & Vinicius, que se realizará no dia 01.11.2026`;
-    const url = `https://wa.me/5567991116370?text=${encodeURIComponent(mensagem)}`;
-    
-    window.open(url, "_blank");
-    
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('rsvp-success').style.display = 'block';
-    
+    const nome = document
+        .getElementById('f-nome')
+        .value
+        .trim();
+
+    const whatsapp = document
+        .getElementById('f-whatsapp')
+        .value
+        .trim();
+
+    const conf = document
+        .getElementById('f-conf')
+        .value;
+
+    const acompanhante = document
+        .getElementById('f-acompanhante')
+        .value
+        .trim();
+
+
+    // ===============================
+    // VALIDAÇÕES
+    // ===============================
+
+    if (!nome) {
+        alert('Por favor, informe seu nome.');
+        return;
+    }
+
+    if (!whatsapp) {
+        alert('Por favor, informe seu WhatsApp.');
+        return;
+    }
+
+    if (!conf) {
+        alert('Por favor, selecione sua confirmação.');
+        return;
+    }
+
+
+    // ===============================
+    // PESSOA VAI AO CASAMENTO
+    // ===============================
+
+    if (conf === 'sim') {
+
+        let mensagem;
+
+        if (acompanhante) {
+
+            mensagem =
+                `Olá! Sou ${nome}.\n\n` +
+                `Confirmo minha presença no casamento de Emily & Vinicius, ` +
+                `que será realizado no dia 01/11/2026.\n\n` +
+                `Meu acompanhante será: ${acompanhante}.\n\n` +
+                `Meu WhatsApp: ${whatsapp}`;
+
+        } else {
+
+            mensagem =
+                `Olá! Sou ${nome}.\n\n` +
+                `Confirmo minha presença no casamento de Emily & Vinicius, ` +
+                `que será realizado no dia 01/11/2026.\n\n` +
+                `Irei sozinho.\n\n` +
+                `Meu WhatsApp: ${whatsapp}`;
+        }
+
+
+        const numeroCerimonialista = '5567991116370';
+
+        const url =
+            `https://wa.me/${numeroCerimonialista}?text=` +
+            `${encodeURIComponent(mensagem)}`;
+
+        window.open(url, '_blank');
+
+
+        // Mensagem exibida no site
+        document.getElementById('form-wrap').style.display = 'none';
+
+        document.getElementById('rsvp-titulo').textContent =
+            'Presença confirmada!';
+
+        document.getElementById('rsvp-mensagem').textContent =
+            'Que alegria ter você conosco nesse dia tão especial!';
+
+        document.getElementById('rsvp-success').style.display = 'block';
+
+        return;
+    }
+
+
+    // ===============================
+    // PESSOA NÃO VAI AO CASAMENTO
+    // ===============================
+
+    if (conf === 'nao') {
+
+        const mensagem =
+            `Olá! Sou ${nome}.\n\n` +
+            `Infelizmente, não poderei comparecer ao casamento de ` +
+            `Emily & Vinicius, que será realizado no dia 01/11/2026.\n\n` +
+            `Sinto muito por não poder estar presente. ` +
+            `Desejo um dia muito especial ao casal!\n\n` +
+            `Meu WhatsApp: ${whatsapp}`;
+
+        const numeroCerimonialista = '5567991116370';
+
+        const url =
+            `https://wa.me/${numeroCerimonialista}?text=` +
+            `${encodeURIComponent(mensagem)}`;
+
+        window.open(url, '_blank');
+
+
+        // Mensagem exibida no site
+        document.getElementById('form-wrap').style.display = 'none';
+
+        document.getElementById('rsvp-titulo').textContent =
+            'Que pena!';
+
+        document.getElementById('rsvp-mensagem').textContent =
+            'Sentiremos sua falta. Agradecemos por nos avisar!';
+
+        document.getElementById('rsvp-success').style.display = 'block';
+
+        return;
+    }
+
 }
-
 // ── Intersection Observer: fade-in on scroll ──
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
