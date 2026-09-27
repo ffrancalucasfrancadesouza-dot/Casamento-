@@ -1,29 +1,182 @@
-nav {
+/* =========================================================
+   MENU PRINCIPAL
+========================================================= */
+
+.navbar {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    z-index: 100;
+
+    z-index: 1000;
+
     display: flex;
+
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+
     padding: 1rem 2rem;
 
+    background: rgba(253, 248, 243, 0.15);
+
+    backdrop-filter: blur(8px);
 }
 
-nav a {
+
+/* LINKS */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2rem;
+}
+
+
+.nav-links a {
     font-family: 'Jost', sans-serif;
+
     font-weight: 400;
+
     font-size: .78rem;
+
     letter-spacing: .18em;
+
     text-transform: uppercase;
+
     text-decoration: none;
+
     color: var(--brown);
-    transition: color .3s;
+
+    white-space: nowrap;
+
+    transition:
+        color .3s ease,
+        opacity .3s ease;
 }
 
-nav a:hover {
+
+.nav-links a:hover {
     color: var(--rose-deep);
+}
+
+
+/* =========================================================
+   BOTÃO HAMBÚRGUER
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--brown);
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        justify-content: flex-end;
+
+        padding: 12px 18px;
+
+    }
+
+
+    /* mostra botão */
+
+    .menu-toggle {
+        display: flex;
+
+        position: relative;
+
+        z-index: 1002;
+    }
+
+
+    /* menu fechado */
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 0;
+        right: 0;
+
+        width: 240px;
+
+        min-height: 100vh;
+
+        padding: 90px 30px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 25px;
+
+        background: rgba(253, 248, 243, 0.97);
+
+        box-shadow:
+            -10px 0 30px rgba(80, 55, 40, 0.10);
+
+        transform: translateX(100%);
+
+        transition: transform .3s ease;
+
+        visibility: hidden;
+
+    }
+
+
+    /* menu aberto */
+
+    .nav-links.active {
+
+        transform: translateX(0);
+
+        visibility: visible;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: .75rem;
+
+        letter-spacing: .15em;
+
+        color: var(--brown);
+
+    }
+
 }
 
 .dress-code {
@@ -1107,11 +1260,9 @@ section {
     text-align: center;
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             rgba(227, 203, 145, 0.55),
-            rgba(240, 232, 223, 0.85)
-        );
+            rgba(240, 232, 223, 0.85));
 
     border: 1px solid var(--rose);
 
@@ -1164,7 +1315,7 @@ section {
     font-family: Georgia, serif;
     font-size: 25px;
 
-    background: rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
 }
 
 
@@ -1217,9 +1368,9 @@ section {
 
     padding: 1rem;
 
-    background: rgba(255,255,255,0.55);
+    background: rgba(255, 255, 255, 0.55);
 
-    border: 1px solid rgba(201,169,110,0.5);
+    border: 1px solid rgba(201, 169, 110, 0.5);
 
     border-radius: 3px;
 }
