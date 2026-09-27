@@ -16,48 +16,308 @@ nav a:hover {
 .dress-code {
     width: 100%;
     padding: 70px 20px;
-    background: #F7F1E8;
+    background: #f8f1e7;
     text-align: center;
-    overflow: hidden;
+}
+
+.dress-code-header {
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.dress-code-subtitle,
+.informacoes-subtitle {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #77695e;
+}
+
+.dress-code-header h2,
+.informacoes-header h2 {
+    margin: 0 0 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 9vw, 58px);
+    font-weight: 400;
+
+    color: #352b25;
+}
+
+.dress-code-header > p,
+.informacoes-header > p {
+    max-width: 550px;
+
+    margin: auto;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: #70635a;
+}
+
+
+/* IMAGEM */
+
+.dress-code-image {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto 55px;
+}
+
+.dress-code-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(70, 50, 35, 0.12);
+}
+
+
+/* TEXTOS DO DRESS CODE */
+
+.dress-code-text {
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+.dress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+.dress-icon {
+    font-size: 32px;
+
+    color: #75675b;
+
+    margin-bottom: 12px;
+}
+
+.dress-line {
+    width: 60px;
+    height: 1px;
+
+    background: #cfc2b5;
+
+    margin-bottom: 18px;
+}
+
+.dress-item h3 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+    font-weight: 400;
+
+    color: #3c3029;
+}
+
+.dress-item p {
+    max-width: 580px;
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: #655a52;
+}
+
+
+/* AVISO */
+
+.dress-warning {
+    margin-top: 15px;
+    padding-top: 35px;
+
+    border-top: 1px solid #d7cbc0;
+}
+
+.dress-warning p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+    line-height: 1.5;
+
+    font-weight: 600;
+
+    color: #a34258;
+}
+.informacoes {
+    width: 100%;
+
+    padding: 80px 25px;
+
+    background: #f8f1e7;
+
+    text-align: center;
 }
 
 
 /* CABEÇALHO */
 
-.dress-code-header {
-    max-width: 700px;
-    margin: 0 auto 35px;
+.informacoes-header {
+    max-width: 650px;
+
+    margin: 0 auto 55px;
 }
 
 
-/* COMO SE VESTIR */
+/* LISTA */
 
-.dress-code-subtitle {
-    display: block;
+.informacoes-lista {
+    max-width: 650px;
 
-    margin-bottom: 10px;
-
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-
-    letter-spacing: 5px;
-
-    color: #75675b;
+    margin: 0 auto;
 }
 
 
-/* DRESS CODE */
+/* ITEM */
 
-.dress-code-header h2 {
-    margin: 0 0 20px;
+.info-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 22px;
+
+    text-align: left;
+}
+
+
+/* ÍCONE */
+
+.info-icon {
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid #b9aa9b;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+
+    color: #806d5d;
+}
+
+
+/* CONTEÚDO */
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h3 {
+    margin: 0 0 9px;
 
     font-family: Georgia, "Times New Roman", serif;
 
-    font-size: clamp(38px, 8vw, 58px);
+    font-size: 24px;
+
     font-weight: 400;
 
-    color: #342a24;
+    color: #3a2e27;
+}
+
+.info-content p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #665b53;
+}
+
+
+/* SEPARADORES */
+
+.info-separador {
+    width: 70px;
+
+    height: 1px;
+
+    background: #d2c5b9;
+
+    margin: 32px 0 32px 72px;
+}
+@media (max-width: 600px) {
+
+    .dress-code {
+        padding: 60px 18px;
+    }
+
+    .dress-code-header h2,
+    .informacoes-header h2 {
+        font-size: 42px;
+    }
+
+    .dress-code-header > p,
+    .informacoes-header > p {
+        font-size: 15px;
+    }
+
+    .dress-item p {
+        font-size: 15px;
+    }
+
+    .info-item {
+        gap: 15px;
+    }
+
+    .info-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+    .info-content h3 {
+        font-size: 21px;
+    }
+
+    .info-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .info-separador {
+        margin-left: 57px;
+    }
+
 }
 
 
