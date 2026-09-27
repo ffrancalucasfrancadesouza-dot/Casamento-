@@ -13,6 +13,95 @@ nav a {
 nav a:hover { 
     color: var(--rose-deep);
 }
+.dress-code {
+    width: 100%;
+    padding: 70px 20px;
+    background: #f8f3eb;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/* CABEÇALHO */
+
+.dress-code-header {
+    max-width: 700px;
+    margin: 0 auto 35px;
+}
+
+
+/* COMO SE VESTIR */
+
+.dress-code-subtitle {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    color: #75675b;
+}
+
+
+/* DRESS CODE */
+
+.dress-code-header h2 {
+    margin: 0 0 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 8vw, 58px);
+    font-weight: 400;
+
+    color: #342a24;
+}
+
+
+/* TEXTO */
+
+.dress-code-header p {
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: #6d6056;
+}
+
+
+/* IMAGEM */
+
+.dress-code-image {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.dress-code-image img {
+    width: 100%;
+    max-width: 850px;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(60, 45, 35, 0.12);
+}
 #hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
