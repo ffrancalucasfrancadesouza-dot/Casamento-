@@ -208,3 +208,35 @@ document.querySelectorAll('.tl-item, .presente-card, .local-card, .presentes-pix
     el.style.transition = 'opacity .7s ease, transform .7s ease';
     observer.observe(el);
 });
+function copiarPix() {
+
+    const chave = document.getElementById('pix-chave').textContent.trim();
+
+    const texto = document.getElementById('pix-copy-text');
+    const icone = document.getElementById('pix-copy-icon');
+    const feedback = document.getElementById('pix-feedback');
+
+    navigator.clipboard.writeText(chave)
+        .then(() => {
+
+            texto.textContent = 'Chave copiada!';
+            icone.textContent = '✓';
+
+            feedback.classList.add('show');
+
+            setTimeout(() => {
+
+                texto.textContent = 'Copiar chave Pix';
+                icone.textContent = '⧉';
+
+                feedback.classList.remove('show');
+
+            }, 2500);
+
+        })
+        .catch(() => {
+
+            alert('Não foi possível copiar automaticamente. Chave Pix: ' + chave);
+
+        });
+}
