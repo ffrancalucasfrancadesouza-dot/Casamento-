@@ -432,55 +432,113 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp">
-    <p class="section-eyebrow">Confirme sua presença</p>
-    <h2 class="section-title">Você vai estar lá?</h2>
-    <div class="section-rule"></div>
+  <section class="rsvp">
 
-    <div class="rsvp-form" id="form-wrap">
-      <div class="form-row">
-        <div class="field">
-          <label>Nome completo</label>
-          <input type="text" id="f-nome" placeholder="Seu nome" />
-        </div>
-        <div class="field">
-          <label>WhatsApp</label>
-          <input type="tel" id="f-tel" placeholder="(00) 00000-0000" />
-        </div>
-      </div>
+    <div id="form-wrap">
 
-      <div class="form-row">
-        <div class="field">
-          <label>Confirmação</label>
-          <select id="f-conf">
-            <option value="">Selecione...</option>
-            <option value="sim">✅ Vou estar lá!</option>
-            <option value="nao">❌ Não poderei ir</option>
+      <div class="rsvp-header">
 
-          </select>
-        </div>
-        <div class="campo-formulario" id="campo-acompanhante">
+        <span>CONFIRME SUA PRESENÇA</span>
 
-          <label for="f-acompanhante">
-            NOME COMPLETO DO ACOMPANHANTE
-          </label>
+        <h2>Você vai estar lá?</h2>
 
-          <input type="text" id="f-acompanhante" placeholder="Nome completo">
-
-        </div>
       </div>
 
 
-      <button class="btn-rsvp" onclick="submitRSVP()">Confirmar Presença</button>
+      <div class="rsvp-form">
+
+        <div class="rsvp-grid">
+
+          <!-- NOME -->
+
+          <div class="campo-formulario">
+
+            <label for="f-nome">
+              NOME COMPLETO
+            </label>
+
+            <input type="text" id="f-nome" placeholder="Seu nome">
+
+          </div>
+
+
+          <!-- WHATSAPP -->
+
+          <div class="campo-formulario">
+
+            <label for="f-whatsapp">
+              WHATSAPP
+            </label>
+
+            <input type="tel" id="f-whatsapp" placeholder="(00) 00000-0000">
+
+          </div>
+
+
+          <!-- CONFIRMAÇÃO -->
+
+          <div class="campo-formulario">
+
+            <label for="f-conf">
+              CONFIRMAÇÃO
+            </label>
+
+            <select id="f-conf">
+
+              <option value="">
+                Selecione...
+              </option>
+
+              <option value="sim">
+                Vou estar lá!
+              </option>
+
+              <option value="nao">
+                Não poderei ir
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- ACOMPANHANTE -->
+
+          <div class="campo-formulario" id="campo-acompanhante">
+
+            <label for="f-acompanhante">
+              NOME COMPLETO DO ACOMPANHANTE
+            </label>
+
+            <input type="text" id="f-acompanhante" placeholder="Nome completo">
+
+          </div>
+
+        </div>
+
+
+        <!-- BOTÃO -->
+
+        <button type="button" class="rsvp-button" onclick="submitRSVP()">
+          CONFIRMAR PRESENÇA
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="rsvp-success" id="rsvp-success">
-      <div class="check">🌸</div>
-      <p>Obrigado! Mal podemos esperar<br />para celebrar com você.</p>
+
+    <!-- SUCESSO -->
+
+    <div id="rsvp-success">
+
+      <h3 id="rsvp-titulo"></h3>
+
+      <p id="rsvp-mensagem"></p>
+
     </div>
+
   </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-names">Emily & Vinícius</div>

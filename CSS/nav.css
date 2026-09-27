@@ -103,24 +103,13 @@ nav a:hover {
 
     margin-bottom: 50px;
 }
-.dress-icon {
-    width: 64px;
-    height: 64px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.dress-icon {
+    font-size: 32px;
 
     color: #75675b;
 
     margin-bottom: 12px;
-}
-
-.dress-icon svg {
-    width: 48px;
-    height: 48px;
-
-    display: block;
 }
 
 .dress-line {
@@ -1268,23 +1257,6 @@ nav a:hover {
     }
 
 }
-    /* ── FOOTER ── */
-    footer {
-      background: var(--text);
-      color: var(--rose-light);
-      text-align: center;
-      padding: 3rem 2rem;
-    }
-    .footer-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 300;
-      margin-bottom: .5rem;
-    }
-    .footer-sub {
-      font-family: 'Jost', sans-serif;
-      font-size: .75rem; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--rose);
-    }
  
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
