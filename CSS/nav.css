@@ -103,13 +103,24 @@ nav a:hover {
 
     margin-bottom: 50px;
 }
-
 .dress-icon {
-    font-size: 32px;
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     color: #75675b;
 
     margin-bottom: 12px;
+}
+
+.dress-icon svg {
+    width: 48px;
+    height: 48px;
+
+    display: block;
 }
 
 .dress-line {
