@@ -1184,27 +1184,18 @@ section {
 }
 
 .presentes-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 240px);
-
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-
     gap: 1.5rem;
 
     max-width: 900px;
-
     margin: 0 auto;
 }
 
-.presentes-grid .presente:nth-child(4) {
-    grid-column: 1;
-    margin-left: 132px;
-}
-
-.presentes-grid .presente:nth-child(5) {
-    grid-column: 2;
-    margin-left: 132px;
+.presente {
+    width: 240px;
+    flex: 0 0 240px;
 }
 .presente-card {
     background: var(--cream-dark);
