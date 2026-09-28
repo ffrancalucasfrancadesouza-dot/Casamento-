@@ -1185,12 +1185,27 @@ section {
 
 .presentes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    grid-template-columns: repeat(3, 240px);
+
+    justify-content: center;
+
     gap: 1.5rem;
+
     max-width: 900px;
+
     margin: 0 auto;
 }
 
+.presentes-grid .presente:nth-child(4) {
+    grid-column: 1;
+    margin-left: 132px;
+}
+
+.presentes-grid .presente:nth-child(5) {
+    grid-column: 2;
+    margin-left: 132px;
+}
 .presente-card {
     background: var(--cream-dark);
     border: 1px solid var(--rose-light);
