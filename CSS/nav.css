@@ -1555,3 +1555,118 @@ section {
     justify-content: center;
     color: var(--rose-light);
 }
+/* ================================
+   DETALHES IMPORTANTES
+================================ */
+
+.dress-warning {
+    max-width: 760px;
+    margin: 50px auto 20px;
+    padding: 35px 30px;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(120, 90, 65, 0.18);
+    border-radius: 2px;
+}
+
+/* TÍTULO */
+
+.warning-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.warning-title h3 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    font-weight: 500;
+    color: #5b4636;
+    text-align: center;
+}
+
+.warning-line {
+    width: 35px;
+    height: 1px;
+    background: #b59a7a;
+    opacity: 0.7;
+}
+
+
+/* CONTEÚDO */
+
+.warning-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.warning-item {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.warning-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    color: #a4775c;
+    padding-top: 2px;
+}
+
+.warning-item h4 {
+    margin: 0 0 5px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+
+    color: #654b39;
+}
+
+.warning-item p {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 400;
+
+    color: #6d6259;
+}
+
+.warning-item strong {
+    color: #654b39;
+    font-weight: 600;
+}
+
+
+/* RODAPÉ */
+
+.warning-footer {
+    margin-top: 32px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(120, 90, 65, 0.18);
+    text-align: center;
+}
+
+.warning-footer p {
+    max-width: 580px;
+    margin: 0 auto 12px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #74685e;
+}
+
+.warning-footer span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #8c6b54;
+}
