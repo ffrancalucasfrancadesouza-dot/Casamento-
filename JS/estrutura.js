@@ -17,7 +17,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 // ── Countdown ──
 function updateCountdown() {
-    const wedding = new Date('2026-11-01T16:00:00');
+    const wedding = new Date('2026-11-01T00:00:01');
     const now = new Date();
     const diff = wedding - now;
 
