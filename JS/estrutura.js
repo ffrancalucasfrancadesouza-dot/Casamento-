@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFIGURAÇÃO
     ================================= */
 
-    const numeroCerimonialista = "5567991116370";
+    const numeroCerimonialista = "5567999422368";
 
 
     /* ================================
