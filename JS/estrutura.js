@@ -40,220 +40,571 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// --- RSVP ---
+/* ================================
+   CONFIRMAÇÃO DE PRESENÇA
+================================ */
 
-// ===============================
-// RSVP - CONFIRMAÇÃO DE PRESENÇA
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const campoConfirmacao = document.getElementById('f-conf');
-const campoAcompanhante = document.getElementById('campo-acompanhante');
+    const form = document.getElementById("confirmationForm");
 
+    const presenca = document.getElementById("presenca");
 
-// Mostra ou esconde o campo de acompanhante
-campoConfirmacao.addEventListener('change', function () {
+    const acompanhantesContainer =
+        document.getElementById("acompanhantesContainer");
 
-    const inputAcompanhante = document.getElementById('f-acompanhante');
+    const quantidadeAcompanhantes =
+        document.getElementById("quantidadeAcompanhantes");
 
-    if (this.value === 'nao') {
+    const nomesAcompanhantes =
+        document.getElementById("nomesAcompanhantes");
 
-        // Esconde o acompanhante
-        campoAcompanhante.style.display = 'none';
+    const criancasContainer =
+        document.getElementById("criancasContainer");
 
-        // Limpa o campo
-        inputAcompanhante.value = '';
+    const temCriancas =
+        document.getElementById("temCriancas");
 
-    } else {
+    const criancasFields =
+        document.getElementById("criancasFields");
 
-        // Mostra o acompanhante
-        campoAcompanhante.style.display = 'block';
+    const errorMessage =
+        document.getElementById("confirmationError");
 
-    }
-
-});
-
-
-// ===============================
-// FUNÇÃO DE ENVIO
-// ===============================
-
-function submitRSVP() {
-
-    const nome = document
-        .getElementById('f-nome')
-        .value
-        .trim();
-
-    const whatsapp = document
-        .getElementById('f-whatsapp')
-        .value
-        .trim();
-
-    const conf = document
-        .getElementById('f-conf')
-        .value;
-
-    const acompanhante = document
-        .getElementById('f-acompanhante')
-        .value
-        .trim();
+    const confirmationMessage =
+        document.getElementById("confirmationMessage");
 
 
-    // ===============================
-    // VALIDAÇÕES
-    // ===============================
 
-    if (!nome) {
-        alert('Por favor, informe seu nome.');
-        return;
-    }
+    /* ================================
+       CONFIGURAÇÃO
+    ================================= */
 
-    if (!whatsapp) {
-        alert('Por favor, informe seu WhatsApp.');
-        return;
-    }
+    // COLOQUE AQUI O NÚMERO DA CERIMONIALISTA
+    // Exemplo: 5567999999999
 
-    if (!conf) {
-        alert('Por favor, selecione sua confirmação.');
-        return;
-    }
+    const numeroCerimonialista = "5567991116370";
 
 
-    // ===============================
-    // PESSOA VAI AO CASAMENTO
-    // ===============================
 
-    if (conf === 'sim') {
+    /* ================================
+       INÍCIO
+    ================================= */
 
-        let mensagem;
+    acompanhantesContainer.classList.add("hidden");
+    criancasContainer.classList.add("hidden");
 
-        if (acompanhante) {
 
-            mensagem =
-                `Olá! Sou ${nome}.\n\n` +
-                `Confirmo minha presença no casamento de Emily & Vinicius, ` +
-                `que será realizado no dia 01/11/2026.\n\n` +
-                `Meu acompanhante será: ${acompanhante}.\n\n` +
-                `Meu WhatsApp: ${whatsapp}`;
+
+    /* ================================
+       ALTERAÇÃO DA CONFIRMAÇÃO
+    ================================= */
+
+    presenca.addEventListener("change", () => {
+
+        errorMessage.textContent = "";
+
+        nomesAcompanhantes.innerHTML = "";
+        criancasFields.innerHTML = "";
+
+        quantidadeAcompanhantes.value = "0";
+        temCriancas.value = "nao";
+
+
+        if (presenca.value === "sim") {
+
+            acompanhantesContainer.classList.remove("hidden");
+
+            criancasContainer.classList.remove("hidden");
 
         } else {
 
-            mensagem =
-                `Olá! Sou ${nome}.\n\n` +
-                `Confirmo minha presença no casamento de Emily & Vinicius, ` +
-                `que será realizado no dia 01/11/2026.\n\n` +
-                `Irei sozinho.\n\n` +
-                `Meu WhatsApp: ${whatsapp}`;
+            acompanhantesContainer.classList.add("hidden");
+
+            criancasContainer.classList.add("hidden");
+
         }
 
-
-        const numeroCerimonialista = '5567991116370';
-
-        const url =
-            `https://wa.me/${numeroCerimonialista}?text=` +
-            `${encodeURIComponent(mensagem)}`;
-
-        window.open(url, '_blank');
-
-
-        // Mensagem exibida no site
-        document.getElementById('form-wrap').style.display = 'none';
-
-        document.getElementById('rsvp-titulo').textContent =
-            'Presença confirmada!';
-
-        document.getElementById('rsvp-mensagem').textContent =
-            'Que alegria ter você conosco nesse dia tão especial!';
-
-        document.getElementById('rsvp-success').style.display = 'block';
-
-        return;
-    }
-
-
-    // ===============================
-    // PESSOA NÃO VAI AO CASAMENTO
-    // ===============================
-
-    if (conf === 'nao') {
-
-        const mensagem =
-            `Olá! Sou ${nome}.\n\n` +
-            `Infelizmente, não poderei comparecer ao casamento de ` +
-            `Emily & Vinicius, que será realizado no dia 01/11/2026.\n\n` +
-            `Sinto muito por não poder estar presente. ` +
-            `Desejo um dia muito especial ao casal!\n\n` +
-            `Meu WhatsApp: ${whatsapp}`;
-
-        const numeroCerimonialista = '5567991116370';
-
-        const url =
-            `https://wa.me/${numeroCerimonialista}?text=` +
-            `${encodeURIComponent(mensagem)}`;
-
-        window.open(url, '_blank');
-
-
-        // Mensagem exibida no site
-        document.getElementById('form-wrap').style.display = 'none';
-
-        document.getElementById('rsvp-titulo').textContent =
-            'Que pena!';
-
-        document.getElementById('rsvp-mensagem').textContent =
-            'Sentiremos sua falta. Agradecemos por nos avisar!';
-
-        document.getElementById('rsvp-success').style.display = 'block';
-
-        return;
-    }
-
-}
-// ── Intersection Observer: fade-in on scroll ──
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.style.opacity = '1';
-            e.target.style.transform = 'translateY(0)';
-        }
     });
-}, { threshold: 0.15 });
 
-document.querySelectorAll('.tl-item, .presente-card, .local-card, .presentes-pix').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity .7s ease, transform .7s ease';
-    observer.observe(el);
-});
-function copiarPix() {
 
-    const chave = document.getElementById('pix-chave').textContent.trim();
 
-    const texto = document.getElementById('pix-copy-text');
-    const icone = document.getElementById('pix-copy-icon');
-    const feedback = document.getElementById('pix-feedback');
+    /* ================================
+       ACOMPANHANTES
+    ================================= */
 
-    navigator.clipboard.writeText(chave)
-        .then(() => {
+    quantidadeAcompanhantes.addEventListener("change", () => {
 
-            texto.textContent = 'Chave copiada!';
-            icone.textContent = '✓';
+        const quantidade =
+            Number(quantidadeAcompanhantes.value);
 
-            feedback.classList.add('show');
+        nomesAcompanhantes.innerHTML = "";
 
-            setTimeout(() => {
 
-                texto.textContent = 'Copiar chave Pix';
-                icone.textContent = '⧉';
+        if (quantidade === 0) {
+            return;
+        }
 
-                feedback.classList.remove('show');
 
-            }, 2500);
+        for (let i = 1; i <= quantidade; i++) {
 
-        })
-        .catch(() => {
+            const campo = document.createElement("div");
 
-            alert('Não foi possível copiar automaticamente. Chave Pix: ' + chave);
+            campo.classList.add("dynamic-field");
+
+            campo.innerHTML = `
+                <label for="acompanhante${i}">
+                    Nome do acompanhante ${i}
+                </label>
+
+                <input
+                    type="text"
+                    id="acompanhante${i}"
+                    name="acompanhante${i}"
+                    placeholder="Nome completo"
+                    required
+                >
+            `;
+
+            nomesAcompanhantes.appendChild(campo);
+
+        }
+
+    });
+
+
+
+    /* ================================
+       CRIANÇAS
+    ================================= */
+
+    temCriancas.addEventListener("change", () => {
+
+        criancasFields.innerHTML = "";
+
+
+        if (temCriancas.value !== "sim") {
+            return;
+        }
+
+
+        adicionarCrianca();
+
+    });
+
+
+
+    /* ================================
+       ADICIONAR CRIANÇA
+    ================================= */
+
+    function adicionarCrianca() {
+
+        const quantidadeAtual =
+            criancasFields.querySelectorAll(".child-group").length;
+
+        const numero =
+            quantidadeAtual + 1;
+
+
+        const childGroup =
+            document.createElement("div");
+
+        childGroup.classList.add("child-group");
+
+
+        childGroup.innerHTML = `
+
+            <div class="dynamic-fields">
+
+                <div class="dynamic-field">
+
+                    <label>
+                        Nome da criança ${numero}
+                    </label>
+
+                    <input
+                        type="text"
+                        name="criancaNome${numero}"
+                        placeholder="Nome completo"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="dynamic-field">
+
+                    <label>
+                        Idade
+                    </label>
+
+                    <input
+                        type="number"
+                        name="criancaIdade${numero}"
+                        placeholder="Idade"
+                        min="0"
+                        max="17"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        criancasFields.appendChild(childGroup);
+
+
+        /* BOTÃO PARA ADICIONAR OUTRA CRIANÇA */
+
+        const adicionarBotao =
+            document.createElement("button");
+
+        adicionarBotao.type = "button";
+
+        adicionarBotao.classList.add("add-child-button");
+
+        adicionarBotao.textContent =
+            "+ Adicionar outra criança";
+
+
+        adicionarBotao.addEventListener("click", () => {
+
+            const totalCriancas =
+                criancasFields.querySelectorAll(".child-group").length;
+
+
+            if (totalCriancas >= 6) {
+
+                return;
+
+            }
+
+
+            adicionarBotao.remove();
+
+            adicionarCrianca();
 
         });
-}
+
+
+        criancasFields.appendChild(adicionarBotao);
+
+    }
+
+
+
+    /* ================================
+       MÁSCARA WHATSAPP
+    ================================= */
+
+    const whatsapp =
+        document.getElementById("whatsapp");
+
+
+    whatsapp.addEventListener("input", (event) => {
+
+        let valor = event.target.value
+            .replace(/\D/g, "")
+            .substring(0, 11);
+
+
+        if (valor.length > 10) {
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{5})(\d{4}).*/,
+                    "($1) $2-$3"
+                );
+
+        } else {
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{4})(\d{4}).*/,
+                    "($1) $2-$3"
+                );
+
+        }
+
+
+        event.target.value = valor;
+
+    });
+
+
+
+    /* ================================
+       ENVIO DO FORMULÁRIO
+    ================================= */
+
+    form.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        errorMessage.textContent = "";
+
+
+
+        /* ================================
+           DADOS PRINCIPAIS
+        ================================= */
+
+        const nome =
+            document.getElementById("nome")
+                .value
+                .trim();
+
+        const telefone =
+            whatsapp.value.trim();
+
+
+
+        if (!nome || !telefone || !presenca.value) {
+
+            errorMessage.textContent =
+                "Preencha os campos obrigatórios.";
+
+            return;
+
+        }
+
+
+
+        /* ================================
+           RECUSA
+        ================================= */
+
+        if (presenca.value === "nao") {
+
+            const mensagem =
+                `Olá! Aqui é ${nome}.
+
+Agradeço pelo convite para o casamento de Emily e Vinícius, mas infelizmente não poderei comparecer.
+
+Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
+
+
+            enviarWhatsApp(mensagem);
+
+            mostrarMensagem(
+                "Que pena que você não poderá estar conosco. Obrigado por nos avisar!"
+            );
+
+            return;
+
+        }
+
+
+
+        /* ================================
+           ACOMPANHANTES
+        ================================= */
+
+        const quantidade =
+            Number(quantidadeAcompanhantes.value);
+
+
+        const acompanhantes = [];
+
+
+        for (let i = 1; i <= quantidade; i++) {
+
+            const campo =
+                document.getElementById(`acompanhante${i}`);
+
+
+            if (!campo || !campo.value.trim()) {
+
+                errorMessage.textContent =
+                    "Informe o nome de todos os acompanhantes.";
+
+                return;
+
+            }
+
+
+            acompanhantes.push(
+                campo.value.trim()
+            );
+
+        }
+
+
+
+        /* ================================
+           CRIANÇAS
+        ================================= */
+
+        const criancas = [];
+
+
+        if (temCriancas.value === "sim") {
+
+            const grupos =
+                criancasFields
+                    .querySelectorAll(".child-group");
+
+
+            for (const grupo of grupos) {
+
+                const nomeCampo =
+                    grupo.querySelector(
+                        'input[type="text"]'
+                    );
+
+                const idadeCampo =
+                    grupo.querySelector(
+                        'input[type="number"]'
+                    );
+
+
+                if (
+                    !nomeCampo.value.trim() ||
+                    !idadeCampo.value
+                ) {
+
+                    errorMessage.textContent =
+                        "Informe o nome e a idade de todas as crianças.";
+
+                    return;
+
+                }
+
+
+                criancas.push({
+
+                    nome: nomeCampo.value.trim(),
+
+                    idade: idadeCampo.value
+
+                });
+
+            }
+
+        }
+
+
+
+        /* ================================
+           TOTAL DE PESSOAS
+        ================================= */
+
+        const totalPessoas =
+            1 +
+            acompanhantes.length +
+            criancas.length;
+
+
+
+        /* ================================
+           MONTAR MENSAGEM
+        ================================= */
+
+        let mensagem =
+            `Olá! Gostaria de confirmar minha presença no casamento de Emily e Vinícius.
+
+Nome: ${nome}
+WhatsApp: ${telefone}
+
+Quantidade total de pessoas: ${totalPessoas}`;
+
+
+
+        /* ================================
+           ACOMPANHANTES NA MENSAGEM
+        ================================= */
+
+        if (acompanhantes.length > 0) {
+
+            mensagem +=
+                `\n\nAcompanhante(s):`;
+
+            acompanhantes.forEach((pessoa, index) => {
+
+                mensagem +=
+                    `\n${index + 1}. ${pessoa}`;
+
+            });
+
+        }
+
+
+
+        /* ================================
+           CRIANÇAS NA MENSAGEM
+        ================================= */
+
+        if (criancas.length > 0) {
+
+            mensagem +=
+                `\n\nCriança(s):`;
+
+            criancas.forEach((crianca, index) => {
+
+                mensagem +=
+                    `\n${index + 1}. ${crianca.nome} - ${crianca.idade} anos`;
+
+            });
+
+        }
+
+
+
+        /* ================================
+           ENVIAR
+        ================================= */
+
+        enviarWhatsApp(mensagem);
+
+
+        mostrarMensagem(
+            `Presença confirmada para ${totalPessoas} pessoa(s). Obrigado!`
+        );
+
+    });
+
+
+
+    /* ================================
+       WHATSAPP
+    ================================= */
+
+    function enviarWhatsApp(mensagem) {
+
+        const mensagemCodificada =
+            encodeURIComponent(mensagem);
+
+
+        const url =
+            `https://wa.me/${numeroCerimonialista}?text=${mensagemCodificada}`;
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+
+
+
+    /* ================================
+       MENSAGEM FINAL
+    ================================= */
+
+    function mostrarMensagem(texto) {
+
+        confirmationMessage.textContent =
+            texto;
+
+        confirmationMessage.classList.add(
+            "show"
+        );
+
+    }
+
+});

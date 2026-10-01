@@ -392,7 +392,6 @@
       </div>
 
 
-      <!-- AVISO -->
       <!-- AVISOS -->
       <div class="dress-warning">
 
@@ -558,111 +557,139 @@
     </div>
   </section>
 
-  <section class="rsvp" id="rsvp">
+  <!-- ================================
+     CONFIRMAÇÃO DE PRESENÇA
+================================ -->
 
-    <div id="form-wrap">
+  <section class="confirmation-section" id="confirmacao">
 
-      <div class="rsvp-header">
+    <div class="confirmation-header">
+      <h2>Você vai estar lá?</h2>
+      <span class="confirmation-line"></span>
+    </div>
 
-        <span>CONFIRME SUA PRESENÇA</span>
+    <form id="confirmationForm">
 
-        <h2>Você vai estar lá?</h2>
+      <!-- NOME + WHATSAPP -->
+      <div class="confirmation-grid">
+
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" maxlength="15" required>
+        </div>
 
       </div>
 
 
-      <div class="rsvp-form">
+      <!-- CONFIRMAÇÃO -->
+      <div class="confirmation-grid">
 
-        <div class="rsvp-grid">
+        <div class="form-group">
+          <label for="presenca">Confirmação</label>
 
-          <!-- NOME -->
+          <select id="presenca" name="presenca" required>
 
-          <div class="campo-formulario">
+            <option value="" selected disabled>
+              Selecione uma opção
+            </option>
 
-            <label for="f-nome">
-              NOME COMPLETO
-            </label>
+            <option value="sim">
+              Vou estar lá!
+            </option>
 
-            <input type="text" id="f-nome" placeholder="Seu nome">
+            <option value="nao">
+              Não vou conseguir ir
+            </option>
 
-          </div>
-
-
-          <!-- WHATSAPP -->
-
-          <div class="campo-formulario">
-
-            <label for="f-whatsapp">
-              WHATSAPP
-            </label>
-
-            <input type="tel" id="f-whatsapp" placeholder="(00) 00000-0000">
-
-          </div>
-
-
-          <!-- CONFIRMAÇÃO -->
-
-          <div class="campo-formulario">
-
-            <label for="f-conf">
-              CONFIRMAÇÃO
-            </label>
-
-            <select id="f-conf">
-
-              <option value="">
-                Selecione...
-              </option>
-
-              <option value="sim">
-                Vou estar lá!
-              </option>
-
-              <option value="nao">
-                Não poderei ir
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <!-- ACOMPANHANTE -->
-
-          <div class="campo-formulario" id="campo-acompanhante">
-
-            <label for="f-acompanhante">
-              NOME COMPLETO DO ACOMPANHANTE
-            </label>
-
-            <input type="text" id="f-acompanhante" placeholder="Nome completo">
-
-          </div>
-
+          </select>
         </div>
 
 
-        <!-- BOTÃO -->
+        <!-- QUANTIDADE DE ACOMPANHANTES -->
+        <div class="form-group conditional-field" id="acompanhantesContainer">
 
-        <button type="button" class="rsvp-button" onclick="submitRSVP()">
-          CONFIRMAR PRESENÇA
-        </button>
+          <label for="quantidadeAcompanhantes">
+            Acompanhantes
+          </label>
+
+          <select id="quantidadeAcompanhantes" name="quantidadeAcompanhantes">
+
+            <option value="0">
+              Nenhum
+            </option>
+
+            <option value="1">
+              1 acompanhante
+            </option>
+
+            <option value="2">
+              2 acompanhantes
+            </option>
+
+            <option value="3">
+              3 acompanhantes
+            </option>
+
+            <option value="4">
+              4 acompanhantes
+            </option>
+
+          </select>
+
+        </div>
 
       </div>
 
-    </div>
+
+      <!-- NOMES DOS ACOMPANHANTES -->
+      <div id="nomesAcompanhantes" class="dynamic-fields"></div>
 
 
-    <!-- SUCESSO -->
+      <!-- CRIANÇAS -->
+      <div class="form-group conditional-field" id="criancasContainer">
 
-    <div id="rsvp-success">
+        <label for="temCriancas">
+          Terá crianças?
+        </label>
 
-      <h3 id="rsvp-titulo"></h3>
+        <select id="temCriancas" name="temCriancas">
 
-      <p id="rsvp-mensagem"></p>
+          <option value="nao">
+            Não
+          </option>
 
-    </div>
+          <option value="sim">
+            Sim
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- LISTA DE CRIANÇAS -->
+      <div id="criancasFields" class="dynamic-fields"></div>
+
+
+      <!-- MENSAGEM DE ERRO -->
+      <div id="confirmationError" class="confirmation-error"></div>
+
+
+      <!-- BOTÃO -->
+      <button type="submit" class="confirmation-button">
+        Confirmar presença
+      </button>
+
+    </form>
+
+
+    <!-- MENSAGEM FINAL -->
+    <div id="confirmationMessage" class="confirmation-message"></div>
 
   </section>
   <!-- FOOTER -->

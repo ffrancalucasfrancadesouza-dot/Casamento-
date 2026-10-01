@@ -23,277 +23,330 @@ body {
       color: var(--text);
       overflow-x: hidden;
 }
-/* =========================================================
-   RSVP - AJUSTE
-========================================================= */
+/* ================================
+   CONFIRMAÇÃO
+================================ */
 
-.rsvp {
+.confirmation-section {
     width: 100%;
-    min-height: auto !important;
-    padding: 90px 20px 70px;
-    overflow: hidden;
-}
-
-#form-wrap {
-    width: 100%;
-    max-width: 760px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0;
+    padding: 80px 40px 90px;
 }
 
-.rsvp-header {
-    width: 100%;
-    margin: 0 auto 45px;
+
+/* CABEÇALHO */
+
+.confirmation-header {
     text-align: center;
+    margin-bottom: 50px;
 }
 
-.rsvp-header span {
-    display: block;
-    margin-bottom: 12px;
-
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: var(--rose);
-}
-
-.rsvp-header h2 {
+.confirmation-header h2 {
     margin: 0;
 
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(40px, 7vw, 58px);
-    line-height: 1.15;
-    font-weight: 400;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 54px;
+    font-weight: 500;
 
-    color: var(--gold);
+    color: #c6a15b;
 }
 
-.rsvp-header h2::after {
-    content: "";
-
+.confirmation-line {
     display: block;
 
     width: 55px;
     height: 1px;
 
-    margin: 25px auto 0;
+    background-color: #c6a15b;
 
-    background: var(--rose-light);
+    margin: 25px auto 0;
 }
 
 
-/* =========================================================
-   CAMPOS
-========================================================= */
+/* FORMULÁRIO */
 
-.rsvp-grid {
+#confirmationForm {
     width: 100%;
+}
 
+
+/* GRID */
+
+.confirmation-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 25px 18px;
+    gap: 18px;
+
+    margin-bottom: 22px;
 }
 
-.campo-formulario {
-    width: 100%;
-    min-width: 0;
+
+/* CAMPOS */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
 
-.campo-formulario label {
-    display: block;
+.form-group label {
+    margin-bottom: 8px;
 
-    margin-bottom: 7px;
-
+    font-family: "Montserrat", sans-serif;
     font-size: 11px;
-    letter-spacing: 3px;
 
-    color: var(--brown);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #795b48;
 }
 
-.campo-formulario input,
-.campo-formulario select {
-    display: block;
-
+.form-group input,
+.form-group select {
     width: 100%;
-    max-width: 100%;
     height: 42px;
 
     padding: 0 15px;
 
-    border: 1px solid var(--rose-light);
-    border-radius: 0;
+    box-sizing: border-box;
+
+    border: 1px solid #d8b77c;
+
+    background-color: rgba(255, 255, 255, 0.35);
+
+    color: #684c39;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.65);
+    border-radius: 0;
 
-    font-family: inherit;
-    font-size: 14px;
-
-    color: var(--brown);
+    transition: border-color 0.2s ease,
+                background-color 0.2s ease;
 }
 
-.campo-formulario input::placeholder {
-    color: #888;
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #a98251;
+
+    background-color: rgba(255, 255, 255, 0.65);
 }
 
-.campo-formulario input:focus,
-.campo-formulario select:focus {
-    border-color: var(--gold);
-
-    box-shadow:
-        0 0 0 2px rgba(201, 169, 110, 0.12);
+.form-group input::placeholder {
+    color: #999;
 }
 
 
-/* =========================================================
-   ACOMPANHANTE
-========================================================= */
+/* CAMPOS CONDICIONAIS */
 
-#campo-acompanhante {
-    width: 100%;
+.conditional-field {
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.conditional-field.hidden {
+    display: none;
 }
 
 
-/* =========================================================
-   BOTÃO
-========================================================= */
+/* CAMPOS DINÂMICOS */
 
-.rsvp-button {
-    display: block;
+.dynamic-fields {
+    display: grid;
 
-    width: 290px;
-    max-width: 100%;
-    height: 47px;
+    grid-template-columns: repeat(2, 1fr);
 
-    margin: 30px auto 0;
+    gap: 18px;
 
-    padding: 0 20px;
+    margin-bottom: 22px;
+}
 
-    border: none;
-    border-radius: 2px;
+.dynamic-field {
+    display: flex;
+    flex-direction: column;
+}
 
-    background: #68462f;
+.dynamic-field label {
+    margin-bottom: 8px;
 
-    color: #fff;
-
-    font-family: inherit;
-    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
 
     letter-spacing: 3px;
+    text-transform: uppercase;
 
-    cursor: pointer;
-
-    transition: 0.3s ease;
+    color: #795b48;
 }
 
-.rsvp-button:hover {
-    background: #563923;
-}
-
-.rsvp-button:active {
-    transform: scale(0.98);
-}
-
-
-/* =========================================================
-   MENSAGEM DE SUCESSO
-========================================================= */
-
-#rsvp-success {
-    display: none;
-
+.dynamic-field input {
     width: 100%;
-    max-width: 650px;
-
-    margin: 50px auto 20px;
+    height: 42px;
 
     padding: 0 15px;
 
+    box-sizing: border-box;
+
+    border: 1px solid #d8b77c;
+
+    background-color: rgba(255, 255, 255, 0.35);
+
+    color: #684c39;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    border-radius: 0;
+}
+
+.dynamic-field input:focus {
+    border-color: #a98251;
+}
+
+
+/* ERRO */
+
+.confirmation-error {
+    min-height: 20px;
+
+    margin: 15px 0;
+
     text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+
+    color: #a34d4d;
 }
 
-#rsvp-success h3 {
-    margin: 0 0 18px;
 
-    font-family: Georgia, "Times New Roman", serif;
+/* BOTÃO */
 
-    font-size: clamp(38px, 8vw, 56px);
-    line-height: 1.15;
-    font-weight: 400;
+.confirmation-button {
+    display: block;
 
-    color: var(--gold);
+    width: 290px;
+    height: 48px;
+
+    margin: 25px auto 0;
+
+    border: none;
+
+    background-color: #6b4935;
+
+    color: #ffffff;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-#rsvp-success p {
-    width: 100%;
+.confirmation-button:hover {
+    background-color: #553827;
+
+    transform: translateY(-1px);
+}
+
+
+/* MENSAGEM FINAL */
+
+.confirmation-message {
+    display: none;
+
     max-width: 600px;
 
-    margin: 0 auto;
+    margin: 35px auto 0;
 
-    font-size: 18px;
-    line-height: 1.65;
+    padding: 25px;
 
-    color: var(--brown);
+    border-top: 1px solid rgba(120, 90, 65, 0.2);
+
+    text-align: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #6d6259;
+}
+
+.confirmation-message.show {
+    display: block;
 }
 
 
-/* =========================================================
-   RESPONSIVO
-========================================================= */
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 650px) {
 
-    .rsvp {
-        padding: 65px 18px 55px;
+    .confirmation-section {
+        padding: 60px 20px 70px;
     }
 
-    .rsvp-header {
+    .confirmation-header {
         margin-bottom: 35px;
     }
 
-    .rsvp-header span {
-        font-size: 9px;
-        letter-spacing: 4px;
+    .confirmation-header h2 {
+        font-size: 42px;
     }
 
-    .rsvp-header h2 {
-        font-size: 40px;
-    }
-
-    .rsvp-grid {
+    .confirmation-grid,
+    .dynamic-fields {
         grid-template-columns: 1fr;
-        gap: 20px;
+
+        gap: 18px;
     }
 
-    .campo-formulario label {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-    }
-
-    .campo-formulario input,
-    .campo-formulario select {
-        height: 45px;
-        font-size: 14px;
-    }
-
-    .rsvp-button {
+    .confirmation-button {
         width: 100%;
-        max-width: 290px;
-        margin-top: 28px;
+        max-width: 300px;
     }
 
-    #rsvp-success {
-        margin-top: 45px;
-    }
+}
+.add-child-button {
+    border: none;
+    background: transparent;
 
-    #rsvp-success h3 {
-        font-size: 38px;
-    }
+    color: #8c6b54;
 
-    #rsvp-success p {
-        font-size: 17px;
-        line-height: 1.6;
-    }
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    padding: 5px 0;
+
+    letter-spacing: 0.5px;
+}
+
+.add-child-button:hover {
+    text-decoration: underline;
+}
+
+
+/* GRUPO DA CRIANÇA */
+
+.child-group {
+    width: 100%;
+    margin-bottom: 5px;
 }
