@@ -350,3 +350,142 @@ body {
     width: 100%;
     margin-bottom: 5px;
 }
+/* ================================
+   RESULTADO DA CONFIRMAÇÃO
+================================ */
+
+.confirmation-result {
+    display: none;
+
+    text-align: center;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 50px 25px;
+
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+/* QUANDO APARECER */
+
+.confirmation-result.show {
+    display: block;
+
+    animation: confirmationAppear 0.8s ease forwards;
+}
+
+
+@keyframes confirmationAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ÍCONE */
+
+.result-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #c6a15b;
+
+    border-radius: 50%;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+
+    color: #8c6b54;
+
+    animation: iconAppear 0.6s ease 0.2s both;
+}
+
+
+@keyframes iconAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* TÍTULO */
+
+.confirmation-result h3 {
+    margin: 0 0 15px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 32px;
+    font-weight: 500;
+
+    color: #684c39;
+}
+
+
+/* TEXTO */
+
+.confirmation-result p {
+    max-width: 500px;
+
+    margin: 0 auto 15px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #756960;
+}
+
+
+/* TEXTO FINAL */
+
+.confirmation-result span {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 19px;
+    font-style: italic;
+
+    color: #a4775c;
+}
+
+
+/* ESTADO DE RECUSA */
+
+.confirmation-result.declined .result-icon {
+    color: #a4775c;
+
+    border-color: #cdb8a3;
+}
+
+.confirmation-result.declined h3 {
+    color: #684c39;
+}

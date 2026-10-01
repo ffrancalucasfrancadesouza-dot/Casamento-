@@ -46,6 +46,10 @@ setInterval(updateCountdown, 1000);
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* ================================
+       ELEMENTOS DO HTML
+    ================================= */
+
     const form = document.getElementById("confirmationForm");
 
     const presenca = document.getElementById("presenca");
@@ -71,29 +75,97 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorMessage =
         document.getElementById("confirmationError");
 
-    const confirmationMessage =
-        document.getElementById("confirmationMessage");
+    const confirmationResult =
+        document.getElementById("confirmationResult");
 
+    const resultIcon =
+        document.getElementById("resultIcon");
+
+    const resultTitle =
+        document.getElementById("resultTitle");
+
+    const resultText =
+        document.getElementById("resultText");
+
+    const resultSubtext =
+        document.getElementById("resultSubtext");
+
+    const whatsapp =
+        document.getElementById("whatsapp");
 
 
     /* ================================
        CONFIGURAÇÃO
     ================================= */
 
-    // COLOQUE AQUI O NÚMERO DA CERIMONIALISTA
-    // Exemplo: 5567999999999
-
     const numeroCerimonialista = "5567991116370";
 
 
-
     /* ================================
-       INÍCIO
+       ESTADO INICIAL
     ================================= */
 
     acompanhantesContainer.classList.add("hidden");
+
     criancasContainer.classList.add("hidden");
 
+
+    /* ================================
+       MOSTRAR RESULTADO
+    ================================= */
+
+    function mostrarResultado(tipo, nome) {
+
+        // Esconde o formulário
+        form.style.display = "none";
+
+        // Remove estado anterior
+        confirmationResult.classList.remove("declined");
+
+
+        /* ================================
+           PRESENÇA CONFIRMADA
+        ================================= */
+
+        if (tipo === "confirmado") {
+
+            resultIcon.textContent = "✓";
+
+            resultTitle.textContent =
+                "Presença confirmada!";
+
+            resultText.textContent =
+                `Obrigado, ${nome}. Estamos felizes em ter você conosco nesse dia tão especial.`;
+
+            resultSubtext.textContent =
+                "Nos vemos no grande dia!";
+        }
+
+
+        /* ================================
+           NÃO VAI
+        ================================= */
+
+        if (tipo === "recusado") {
+
+            confirmationResult.classList.add("declined");
+
+            resultIcon.textContent = "♡";
+
+            resultTitle.textContent =
+                "Que pena que você não poderá estar conosco.";
+
+            resultText.textContent =
+                "Agradecemos por nos avisar. Desejamos que você esteja bem e esperamos nos encontrar em outra ocasião.";
+
+            resultSubtext.textContent =
+                "Com carinho, Emily & Vinícius";
+        }
+
+
+        // Mostra a tela de resultado
+        confirmationResult.classList.add("show");
+    }
 
 
     /* ================================
@@ -105,9 +177,11 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMessage.textContent = "";
 
         nomesAcompanhantes.innerHTML = "";
+
         criancasFields.innerHTML = "";
 
         quantidadeAcompanhantes.value = "0";
+
         temCriancas.value = "nao";
 
 
@@ -122,11 +196,9 @@ document.addEventListener("DOMContentLoaded", () => {
             acompanhantesContainer.classList.add("hidden");
 
             criancasContainer.classList.add("hidden");
-
         }
 
     });
-
 
 
     /* ================================
@@ -142,13 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (quantidade === 0) {
+
             return;
         }
 
 
         for (let i = 1; i <= quantidade; i++) {
 
-            const campo = document.createElement("div");
+            const campo =
+                document.createElement("div");
 
             campo.classList.add("dynamic-field");
 
@@ -167,11 +241,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             nomesAcompanhantes.appendChild(campo);
-
         }
 
     });
-
 
 
     /* ================================
@@ -184,6 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (temCriancas.value !== "sim") {
+
             return;
         }
 
@@ -191,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
         adicionarCrianca();
 
     });
-
 
 
     /* ================================
@@ -258,14 +330,18 @@ document.addEventListener("DOMContentLoaded", () => {
         criancasFields.appendChild(childGroup);
 
 
-        /* BOTÃO PARA ADICIONAR OUTRA CRIANÇA */
+        /* ================================
+           BOTÃO ADICIONAR OUTRA CRIANÇA
+        ================================= */
 
         const adicionarBotao =
             document.createElement("button");
 
         adicionarBotao.type = "button";
 
-        adicionarBotao.classList.add("add-child-button");
+        adicionarBotao.classList.add(
+            "add-child-button"
+        );
 
         adicionarBotao.textContent =
             "+ Adicionar outra criança";
@@ -280,7 +356,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (totalCriancas >= 6) {
 
                 return;
-
             }
 
 
@@ -296,20 +371,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     /* ================================
-       MÁSCARA WHATSAPP
+       MÁSCARA DO WHATSAPP
     ================================= */
-
-    const whatsapp =
-        document.getElementById("whatsapp");
-
 
     whatsapp.addEventListener("input", (event) => {
 
-        let valor = event.target.value
-            .replace(/\D/g, "")
-            .substring(0, 11);
+        let valor =
+            event.target.value
+                .replace(/\D/g, "")
+                .substring(0, 11);
 
 
         if (valor.length > 10) {
@@ -327,14 +398,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     /^(\d{2})(\d{4})(\d{4}).*/,
                     "($1) $2-$3"
                 );
-
         }
 
 
         event.target.value = valor;
 
     });
-
 
 
     /* ================================
@@ -346,7 +415,6 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         errorMessage.textContent = "";
-
 
 
         /* ================================
@@ -362,16 +430,13 @@ document.addEventListener("DOMContentLoaded", () => {
             whatsapp.value.trim();
 
 
-
         if (!nome || !telefone || !presenca.value) {
 
             errorMessage.textContent =
                 "Preencha os campos obrigatórios.";
 
             return;
-
         }
-
 
 
         /* ================================
@@ -390,14 +455,19 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
 
             enviarWhatsApp(mensagem);
 
-            mostrarMensagem(
-                "Que pena que você não poderá estar conosco. Obrigado por nos avisar!"
-            );
+
+            setTimeout(() => {
+
+                mostrarResultado(
+                    "recusado",
+                    nome
+                );
+
+            }, 500);
+
 
             return;
-
         }
-
 
 
         /* ================================
@@ -414,7 +484,9 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
         for (let i = 1; i <= quantidade; i++) {
 
             const campo =
-                document.getElementById(`acompanhante${i}`);
+                document.getElementById(
+                    `acompanhante${i}`
+                );
 
 
             if (!campo || !campo.value.trim()) {
@@ -423,16 +495,13 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
                     "Informe o nome de todos os acompanhantes.";
 
                 return;
-
             }
 
 
             acompanhantes.push(
                 campo.value.trim()
             );
-
         }
-
 
 
         /* ================================
@@ -445,8 +514,9 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
         if (temCriancas.value === "sim") {
 
             const grupos =
-                criancasFields
-                    .querySelectorAll(".child-group");
+                criancasFields.querySelectorAll(
+                    ".child-group"
+                );
 
 
             for (const grupo of grupos) {
@@ -471,22 +541,21 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
                         "Informe o nome e a idade de todas as crianças.";
 
                     return;
-
                 }
 
 
                 criancas.push({
 
-                    nome: nomeCampo.value.trim(),
+                    nome:
+                        nomeCampo.value.trim(),
 
-                    idade: idadeCampo.value
+                    idade:
+                        idadeCampo.value
 
                 });
 
             }
-
         }
-
 
 
         /* ================================
@@ -497,7 +566,6 @@ Obrigado pelo carinho e desejo um dia muito especial ao casal!`;
             1 +
             acompanhantes.length +
             criancas.length;
-
 
 
         /* ================================
@@ -513,7 +581,6 @@ WhatsApp: ${telefone}
 Quantidade total de pessoas: ${totalPessoas}`;
 
 
-
         /* ================================
            ACOMPANHANTES NA MENSAGEM
         ================================= */
@@ -523,15 +590,17 @@ Quantidade total de pessoas: ${totalPessoas}`;
             mensagem +=
                 `\n\nAcompanhante(s):`;
 
-            acompanhantes.forEach((pessoa, index) => {
 
-                mensagem +=
-                    `\n${index + 1}. ${pessoa}`;
+            acompanhantes.forEach(
+                (pessoa, index) => {
 
-            });
+                    mensagem +=
+                        `\n${index + 1}. ${pessoa}`;
+
+                }
+            );
 
         }
-
 
 
         /* ================================
@@ -543,34 +612,44 @@ Quantidade total de pessoas: ${totalPessoas}`;
             mensagem +=
                 `\n\nCriança(s):`;
 
-            criancas.forEach((crianca, index) => {
 
-                mensagem +=
-                    `\n${index + 1}. ${crianca.nome} - ${crianca.idade} anos`;
+            criancas.forEach(
+                (crianca, index) => {
 
-            });
+                    mensagem +=
+                        `\n${index + 1}. ${crianca.nome} - ${crianca.idade} anos`;
+
+                }
+            );
 
         }
 
 
-
         /* ================================
-           ENVIAR
+           ENVIAR WHATSAPP
         ================================= */
 
         enviarWhatsApp(mensagem);
 
 
-        mostrarMensagem(
-            `Presença confirmada para ${totalPessoas} pessoa(s). Obrigado!`
-        );
+        /* ================================
+           MOSTRAR CONFIRMAÇÃO
+        ================================= */
+
+        setTimeout(() => {
+
+            mostrarResultado(
+                "confirmado",
+                nome
+            );
+
+        }, 500);
 
     });
 
 
-
     /* ================================
-       WHATSAPP
+       FUNÇÃO WHATSAPP
     ================================= */
 
     function enviarWhatsApp(mensagem) {
@@ -586,23 +665,6 @@ Quantidade total de pessoas: ${totalPessoas}`;
         window.open(
             url,
             "_blank"
-        );
-
-    }
-
-
-
-    /* ================================
-       MENSAGEM FINAL
-    ================================= */
-
-    function mostrarMensagem(texto) {
-
-        confirmationMessage.textContent =
-            texto;
-
-        confirmationMessage.classList.add(
-            "show"
         );
 
     }
